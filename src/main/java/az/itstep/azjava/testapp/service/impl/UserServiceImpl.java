@@ -2,6 +2,7 @@ package az.itstep.azjava.testapp.service.impl;
 
 import az.itstep.azjava.testapp.model.User;
 import az.itstep.azjava.testapp.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    private List<User> users;
 
     @Override
     public List<User> getUsers() {
@@ -20,5 +23,10 @@ public class UserServiceImpl implements UserService {
         users.add(u2);
         users.add(u3);
         return users;
+    }
+
+    @Autowired
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
