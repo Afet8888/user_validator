@@ -1,6 +1,7 @@
 package az.itstep.azjava.testapp;
 
 
+import az.itstep.azjava.testapp.model.Employee;
 import az.itstep.azjava.testapp.model.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +9,11 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootApplication
 public class Application {
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
@@ -18,6 +21,16 @@ public class Application {
     @Bean
     public List<User> getUsers() {
         return new ArrayList<>();
+    }
+
+    @Bean
+    public List<Employee> getEmployees() {
+        return new ArrayList<>();
+    }
+
+    @Bean
+    public AtomicInteger idValue() {
+        return new AtomicInteger(1);
     }
 }
 
