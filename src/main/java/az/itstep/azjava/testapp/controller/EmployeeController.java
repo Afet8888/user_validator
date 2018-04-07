@@ -6,7 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/**
+ *   /employee
+ *       GET -> list<employee>
+ *       POST employee -> saved employee with generated ID
+ *       PUT employee -> updated employee
+ *
+ *       /{id}
+ *           DELETE -> delete employee with ID == {id}
+ *           GET -> get employee with ID == {id}
+ *
+ */
 @RestController
 @RequestMapping(path = "/employee")
 public class EmployeeController {
