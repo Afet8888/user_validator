@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
@@ -38,7 +39,11 @@ public class AuthenticationController {
     public ResponseEntity<String> sayHello(@RequestHeader HttpHeaders httpHeaders) {
         //get key from header
 
-        String key = httpHeaders.get("token").get(0);
+        String key = "";
+        List<String> token = httpHeaders.get("token");
+        if(token != null && token.size() > 0) {
+            key = token.get(0);
+        }
         User user = authenticatedUsers.get(key);
         if(Objects.nonNull(user)) {
             String res = "Hello, " + user.getUsername();
