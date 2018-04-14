@@ -1,6 +1,5 @@
 package az.itstep.azjava.testapp.controller;
 
-import az.itstep.azjava.testapp.model.Key;
 import az.itstep.azjava.testapp.model.User;
 import az.itstep.azjava.testapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +54,4 @@ public class AuthenticationController {
                 .status(HttpStatus.UNAUTHORIZED)
                 .build();//HTTP STATUS 401
     }
-
 }
