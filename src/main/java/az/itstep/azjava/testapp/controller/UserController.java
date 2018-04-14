@@ -1,7 +1,10 @@
 package az.itstep.azjava.testapp.controller;
 
+import az.itstep.azjava.testapp.model.Employee;
 import az.itstep.azjava.testapp.model.User;
+import az.itstep.azjava.testapp.service.EmployeeService;
 import az.itstep.azjava.testapp.service.UserService;
+import az.itstep.azjava.testapp.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +14,10 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
+
+
+    private EmployeeService employeeService = new EmployeeServiceImpl();
+
 
     private UserService userService;
 

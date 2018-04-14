@@ -2,6 +2,7 @@ package az.itstep.azjava.testapp.controller;
 
 import az.itstep.azjava.testapp.model.Employee;
 import az.itstep.azjava.testapp.service.EmployeeService;
+import az.itstep.azjava.testapp.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,8 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/employee")
 public class EmployeeController {
-    public EmployeeService employeeService;
+
+    private EmployeeService employeeService;
 
     @GetMapping
     public List<Employee> getEmployees() {
@@ -51,4 +53,13 @@ public class EmployeeController {
     public void setEmployeeService(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
+
 }
+
+
+/*
+HTTP/2
+PUT
+/employee
+BODY: ""
+ */
