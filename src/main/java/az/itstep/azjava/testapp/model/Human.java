@@ -22,6 +22,28 @@ public class Human {
     private String gender;
     @Column(name = "my_custom_date_field_name")
     private Date dateOfBirth;//date_of_birth
+
+    @ManyToOne
+    @JoinColumn(name = "mother_id")
     private Human mother;
+
+    @ManyToOne
+    @JoinColumn(name = "father_id")
     private Human father;
 }
+/*
+
+DROP TABLE IF EXIST people;
+
+CREATE TABLE people (
+    id SERIAL NOT NULL PRIMARY KEY,
+    name TEXT,
+    surname TEXT,
+    gender TEXT,
+    my_custom_date_field_name TIMESTAMP,
+    mother_id SERIAL,
+    father_id SERIAL
+);
+
+
+ */
