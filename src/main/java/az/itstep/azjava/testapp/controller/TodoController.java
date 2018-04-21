@@ -39,8 +39,8 @@ public class TodoController {
     }
 
     @PutMapping("/{id}")
-    public void switchDone(@PathVariable Integer id) {
-        todoService.switchDone(id);
+    public Todo switchDone(@PathVariable Integer id) {
+        return todoService.switchDone(id);
     }
 
     @Autowired

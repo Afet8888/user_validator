@@ -9,8 +9,8 @@ public interface TodoService {
     List<Todo> getAll();
     Todo save(Todo todo);
     Todo update(Todo todo);
-    Todo getOne(@PathVariable Integer id);
-    void delete(@PathVariable Integer id);
+    Todo getOne(Integer id);
+    void delete(Integer id);
     Todo switchDone(Integer id);
 
 }

@@ -14,7 +14,7 @@ import java.util.Optional;
 @Service
 public class TodoServiceImpl implements TodoService {
 
-    TodoRepository todoRepository;
+    private TodoRepository todoRepository;
 
     @Override
     public List<Todo> getAll() {
@@ -26,6 +26,7 @@ public class TodoServiceImpl implements TodoService {
         if(Objects.isNull(todo)
                 || Objects.nonNull(todo.getId()))
             return null;
+
         todo.setDone(false);
         todo.setCreationDate(new Date());
         return todoRepository.save(todo);
@@ -50,6 +51,9 @@ public class TodoServiceImpl implements TodoService {
             if(Objects.nonNull(newText)) {
                 lastTodo.setText(newText);
             }
+
+            todoRepository.save(lastTodo);
+            return lastTodo;
         }
         return null;
     }
