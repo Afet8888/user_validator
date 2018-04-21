@@ -9,34 +9,31 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class);
-    }
-
-
     /*
-    Family tree
-
-    Human {
-        id, name, surname, birth date, gender, mother, father
+    Todo {
+        id
+        title,
+        text,
+        isDone(by default false, can't create with
+                        true value),
+        creationDate
     }
 
-    /api/family/human
-        POST - CREATE,
-        PUT - UPDATE
-        GET - List<Human>
-        /{id} GET - Human with ID
-
-        /{id} DELETE - delete human with ID
-
-     1. Create service interface with CRUD
-     2. Create controller with API.
-     3. Create service impl
-     4. Autowire service in controller
-
+    /todo
+        GET -> List<Todo>
+        POST Todo -> save to db
+        PUT Todo -> Update in db (can't change isDone
+                                or creationDate)
+        /{id}
+            GET -> Todo with id
+            DELETE -> delete todo with id
+            PUT -> switch isDone status
 
      */
 
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class);
+    }
 
 }
 
