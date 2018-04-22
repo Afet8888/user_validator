@@ -25,7 +25,7 @@ public class Application {
 
 
      */
-
+    //https://spring.io/blog/2015/06/08/cors-support-in-spring-framework
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
