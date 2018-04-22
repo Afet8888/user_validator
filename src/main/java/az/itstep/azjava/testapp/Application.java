@@ -1,11 +1,12 @@
 package az.itstep.azjava.testapp;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-
+/**
+ * @ComponentScan - base package gosterir
+ * @EnableAutoConfiguration
+ */
 @SpringBootApplication
 public class Application {
 

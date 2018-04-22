@@ -11,6 +11,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * ITodoService
+ * TodoService
+ *
+ * TodoService
+ * TodoServiceImpl
+ */
 @Service
 public class TodoServiceImpl implements TodoService {
 
@@ -27,7 +34,7 @@ public class TodoServiceImpl implements TodoService {
                 || Objects.nonNull(todo.getId()))
             return null;
 
-        todo.setDone(false);
+        todo.setIsDone(false);
         todo.setCreationDate(new Date());
         return todoRepository.save(todo);
     }
@@ -73,8 +80,8 @@ public class TodoServiceImpl implements TodoService {
         Optional<Todo> todoOpt = todoRepository.findById(id);
         if(todoOpt.isPresent()) {
             Todo todo = todoOpt.get();
-            boolean isDone = todo.isDone();
-            todo.setDone(!isDone);
+            boolean isDone = todo.getIsDone();
+            todo.setIsDone(!isDone);
             todoRepository.save(todo);
             return todo;
         }
