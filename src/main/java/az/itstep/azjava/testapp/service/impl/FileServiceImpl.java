@@ -1,6 +1,6 @@
 package az.itstep.azjava.testapp.service.impl;
 
-import az.itstep.azjava.testapp.dao.TodoRepository;
+import az.itstep.azjava.testapp.dao.FileRepository;
 import az.itstep.azjava.testapp.model.File;
 import az.itstep.azjava.testapp.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +11,15 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-/**
- * ITodoService
- * FileService
- *
- * FileService
- * FileServiceImpl
- */
+
 @Service
 public class FileServiceImpl implements FileService {
 
-    private TodoRepository todoRepository;
+    private FileRepository fileRepository;
 
     @Override
     public List<File> getAll() {
-        return (List<File>) todoRepository.findAll();
+        return (List<File>) fileRepository.findAll();
     }
 
     @Override
@@ -35,7 +29,7 @@ public class FileServiceImpl implements FileService {
             return null;
 
         file.setCreationDate(new Date());
-        return todoRepository.save(file);
+        return fileRepository.save(file);
     }
 
     @Override
@@ -43,7 +37,7 @@ public class FileServiceImpl implements FileService {
         if(Objects.isNull(file)
                 || Objects.isNull(file.getId()))
             return null;
-        Optional<File> last = todoRepository.findById(file.getId());
+        Optional<File> last = fileRepository.findById(file.getId());
         if(last.isPresent()) {
             File lastFile = last.get();
             String newName = file.getName();
@@ -51,7 +45,7 @@ public class FileServiceImpl implements FileService {
             if(Objects.nonNull(newName))
                 lastFile.setName(newName);
 
-            todoRepository.save(lastFile);
+            fileRepository.save(lastFile);
             return lastFile;
         }
         return null;
@@ -59,16 +53,16 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public File getOne(Integer id) {
-        return todoRepository.findById(id).orElse(null);
+        return fileRepository.findById(id).orElse(null);
     }
 
     @Override
     public void delete(Integer id) {
-        todoRepository.deleteById(id);
+        fileRepository.deleteById(id);
     }
 
     @Autowired
-    public void setTodoRepository(TodoRepository todoRepository) {
-        this.todoRepository = todoRepository;
+    public void setFileRepository(FileRepository fileRepository) {
+        this.fileRepository = fileRepository;
     }
 }

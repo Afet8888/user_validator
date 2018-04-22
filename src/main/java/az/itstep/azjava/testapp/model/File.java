@@ -20,6 +20,4 @@ public class File {
     @JoinColumn(name="directory_id")
     private Directory directory;
 
-
-//    private Integer directoryId;//directory_id
 }
