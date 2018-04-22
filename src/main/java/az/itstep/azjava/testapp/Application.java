@@ -11,24 +11,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
     /*
-    Todo {
-        id
-        title,
-        text,
-        isDone(by default false, can't create with
-                        true value),
-        creationDate
+    File {
+        id, name, size, creationDate
     }
+    Directory {
+        id, name, List<File>
+    }
+    CRUD
+    GET /api/directories/{id}/files ->
+                    List<File> from directory with ID = {id}
 
-    /todo
-        GET -> List<Todo>
-        POST Todo -> save to db
-        PUT Todo -> Update in db (can't change isDone
-                                or creationDate)
-        /{id}
-            GET -> Todo with id
-            DELETE -> delete todo with id
-            PUT -> switch isDone status
+    List<File> getFilesFromDirectory(Integer directoryId)
+
 
      */
 
