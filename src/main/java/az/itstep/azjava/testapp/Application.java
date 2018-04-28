@@ -19,7 +19,9 @@ public class Application {
      *     id, name, List<Employee>
      * }
      *
+     *
      * /api/department (CRUD)
+     *
      * /api/employee (CRUD)
      *
      * /api/salary GET -> maashlarin cemi

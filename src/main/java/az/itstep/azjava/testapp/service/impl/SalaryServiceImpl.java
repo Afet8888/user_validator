@@ -17,20 +17,13 @@ public class SalaryServiceImpl implements SalaryService {
     @Override
     public Integer getSalariesSum() {
         List<Employee> employees = (List<Employee>) employeeRepository.findAll();
-        return employees
-                .stream()
-                .mapToInt(Employee::getSalary)
-                .sum();
+        return sumSalaries(employees);
     }
 
     @Override
     public Integer getSalariesSum(Integer departmentId) {
         List<Employee> departmentEmployees = employeeRepository.findAllByDepartmentId(departmentId);
-
-        return departmentEmployees
-                .stream()
-                .mapToInt(Employee::getSalary)
-                .sum();
+        return sumSalaries(departmentEmployees);
     }
 
     private int sumSalaries(List<Employee> employees) {
