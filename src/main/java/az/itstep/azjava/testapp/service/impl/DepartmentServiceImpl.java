@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
@@ -48,7 +49,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public List<DepartmentDTO> findAll() {
-        return null;
+        List<Department> departments = (List<Department>) departmentRepository.findAll();
+        return departments
+                .parallelStream()
+                //.map(d -> departmentDtoService.convertToDto(d))
+                .map(departmentDtoService::convertToDto)
+                .collect(Collectors.toList());
     }
 
     @Autowired
