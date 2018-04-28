@@ -10,20 +10,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
-    /*
-    File {
-        id, name, size, creationDate
-    }
-    Directory {
-        id, name, List<File>
-    }
-    CRUD
-    GET /api/directories/{id}/files ->
-                    List<File> from directory with ID = {id}
-
-    List<File> getFilesFromDirectory(Integer directoryId)
+    /*  ***DTO***
+     * Employee {
+     *     id, name, surname, salary, position
+     *     dateOfBirth, department
+     * }
+     * Department {
+     *     id, name, List<Employee>
+     * }
+     *
+     * /api/department (CRUD)
+     * /api/employee (CRUD)
+     *
+     * /api/salary GET -> maashlarin cemi
+     * /api/salary/department/{id}/ GET
+     *         -> departamentde olan ishcilerin
+     *              maashlarinin cemi
      */
-    //https://spring.io/blog/2015/06/08/cors-support-in-spring-framework
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }

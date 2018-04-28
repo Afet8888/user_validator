@@ -2,18 +2,16 @@ package az.itstep.azjava.testapp.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Data
 @Entity
-public class Directory {
-
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-
-    @OneToMany(mappedBy = "directory")
-    private List<File> files;
 }
