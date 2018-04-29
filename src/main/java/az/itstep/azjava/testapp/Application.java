@@ -3,32 +3,35 @@ package az.itstep.azjava.testapp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * @ComponentScan - base package gosterir
- * @EnableAutoConfiguration
- */
 @SpringBootApplication
 public class Application {
 
-    /*  ***DTO***
-     * Employee {
-     *     id, name, surname, salary, position
-     *     dateOfBirth, department
-     * }
-     * Department {
-     *     id, name, List<Employee>
+    /*
+     * User {
+     *  username, password, email, firstName,
+     *  lastName, phoneNumber
      * }
      *
+     * Check phoneNumber (AZ pattern)
+     * Check firstname and lastname
+     * Check email
+     * Username and password NOT NULL
      *
-     * /api/department (CRUD)
+     * Use DTO pattern
+     * /api/users (CRUD)
      *
-     * /api/employee (CRUD)
+     * /api/statistics/password/length ->
+     *                          userlerin arasinda
+     *                          shifrenin uzunluqunun
+     *                          orta qiymeti
+     * /api/statistics/firstname ->
+     *                          userlerin arasinda
+     *                          firstname null olanlarin
+     *                          fayizi
      *
-     * /api/salary GET -> maashlarin cemi
-     * /api/salary/department/{id}/ GET
-     *         -> departamentde olan ishcilerin
-     *              maashlarinin cemi
+     *
      */
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
