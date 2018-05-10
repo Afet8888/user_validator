@@ -18,7 +18,7 @@ public class Application {
      * Username and password NOT NULL
      *
      * Use DTO pattern
-     * /api/users (CRUD)
+     * /api/users(CRUD)
      *
      * /api/statistics/password/length ->
      *                          userlerin arasinda

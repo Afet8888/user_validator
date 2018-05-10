@@ -9,49 +9,38 @@ import java.util.Objects;
 public class UserValidator {
 
     public void validateUser(User user) {
-        if(Objects.isNull(user)
+        if (Objects.isNull(user)
                 || Objects.isNull(user.getUsername())
                 || Objects.isNull(user.getPassword()))
             throw new RuntimeException("wrong username");
 
-        validateFirstname(user.getFirstname());
-        validateLastname(user.getLastname());
+        validateName(user.getFirstname());
+        validateName(user.getLastname());
         validateEmail(user.getEmail());
         validatePhoneNumber(user.getPhoneNumber());
     }
 
-    public void validateFirstname(String firstname) {
-        if(Objects.isNull(firstname)) return;
+    public void validateName(String name) {
+        if (Objects.isNull(name)) return;
 
-        if(firstname.length() < 2)
-            throw new RuntimeException("short name");
+        if(!name.matches("[A-ZА-Я]{1}[a-zа-я]+"))
+            throw new RuntimeException("Wrong firstname or lastname");
+    }
 
-        char firstLetter = firstname.charAt(0);
 
-        if(Character.isLowerCase(firstLetter))
-            throw new RuntimeException("first letter");
+    public void validateEmail(String email) {
+        if (Objects.isNull(email)) return;
 
-        for (int i = 1; i < firstname.length(); i++) {
-            char c = firstname.charAt(i);
-            if(!Character.isLetter(c))
-                throw new RuntimeException("only letters");
-
-            if(!Character.isLowerCase(c))
-                throw new RuntimeException("only first character");
-
+        if (!email.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
+            throw new RuntimeException("Wrong E-mail");
         }
     }
 
-    public void validateLastname(String secondname) {
-
-    }
-
-    public void validateEmail(String email) {
-
-    }
-
     public void validatePhoneNumber(String phoneNumber) {
-
+        if (Objects.isNull(phoneNumber)) return;
+        if (!phoneNumber.matches("[+]?994[0517]{2}[0-9]{7}")) {
+            throw new RuntimeException("Wrong number");
+        }
     }
-
 }
+
