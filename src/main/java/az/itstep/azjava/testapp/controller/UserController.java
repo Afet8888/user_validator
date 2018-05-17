@@ -14,8 +14,8 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UserController {
 
-    UserServiceImpl userService;
-    UserDTOService userDTOService;
+    private UserServiceImpl userService;
+    private UserDTOService userDTOService;
 
     @PostMapping
     public User save(@RequestBody User user) {
@@ -38,9 +38,6 @@ public class UserController {
    void delete(@PathVariable Integer id) {
         userService.delete(id);
    }
-
-
-
 //    //***Good practice
 //    //Eger her hansi bir klass exception tullasa
 //    //bu metod cagirilacey

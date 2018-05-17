@@ -28,7 +28,11 @@ public class UserServiceImpl {
         user sehfdise -> exception
          */
         userValidator.validateUser(user);
-        return userRepository.save(user);
+        if(Objects.isNull(user)
+                || Objects.isNull(user.getUsername())
+                || Objects.isNull(user.getPassword()))
+                throw new RuntimeException("Wrong Username or Password");
+                return userRepository.save(user);
     }
 
     public void delete(Integer id){

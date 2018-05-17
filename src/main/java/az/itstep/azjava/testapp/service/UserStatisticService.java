@@ -35,18 +35,6 @@ public class UserStatisticService {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     @Autowired
     public UserStatisticService(UserRepository userRepository) {
         this.userRepository = userRepository;
